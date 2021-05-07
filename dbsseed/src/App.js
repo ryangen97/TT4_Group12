@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Main from "./components/dashboard/Main";
+import Navbar from "./components/navbar/Navbar";
+import Sidebar from "./components/sidebar/Sidebar";
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
 
-function App() {
+const App = () => {
+  const [sidebarOpen, setsidebarOpen] = useState(false);
+  const openSidebar = () => {
+    setsidebarOpen(true);
+  };
+  const closeSidebar = () => {
+    setsidebarOpen(false);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="root-container">
+        <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
+        <Main />
+        <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
