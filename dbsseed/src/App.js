@@ -8,6 +8,7 @@ import LoginPage from "./pages/Login/"
 import DashboardPage from "./pages/Dashboard"
 import axios from 'axios'
 import PrivateRoute from "./components/PrivateRoutes"
+import IdleContainer from "./components/SessionTimer/"
 import { AuthContextProvider } from './contexts/AuthContext'
 import AccountPage from "./pages/Account"
 
@@ -43,12 +44,14 @@ const App = () => {
           <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
           <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
           <Route path="/login" component={LoginPage}/>
-          <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
-          <PrivateRoute path="/dashboard" component={DashboardPage} />
-          <PrivateRoute path="/account" component={AccountPage} />
-          <div className="Login">
-            <PrivateRoute path="/transaction-history" component={TransactionHistory} />
-          </div>
+          <IdleContainer>
+            <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
+            <PrivateRoute path="/dashboard" component={DashboardPage} />
+            <PrivateRoute path="/account" component={AccountPage} />
+            <div className="Login">
+              <PrivateRoute path="/transaction-history" component={TransactionHistory} />
+            </div>
+          </IdleContainer>
         </div>
       </AuthContextProvider>
     </Router>
