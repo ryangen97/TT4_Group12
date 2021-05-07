@@ -22,8 +22,8 @@ function Login() {
   function handleSubmit(event) {
     loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
-      history.push("/transactionHistory");
-    }).catch(error => {console.log(error)})
+    })
+    history.push("/transactionHistory");
     
     event.preventDefault();
   }

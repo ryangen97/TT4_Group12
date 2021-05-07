@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
+const { setAuthTokens } = useAuth();
 
 
 const {loginAcc} = require('./api.js');
@@ -22,8 +23,8 @@ function Login() {
   function handleSubmit(event) {
     loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
-      history.push("/transactionHistory");
-    }).catch(error => {console.log(error)})
+    })
+    history.push("/transactionHistory");
     
     event.preventDefault();
   }

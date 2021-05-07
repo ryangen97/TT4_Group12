@@ -4,27 +4,25 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 import { useHistory } from "react-router-dom";
-
-
 const {loginAcc} = require('./api.js');
-
 
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
   const history = useHistory();
-
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
 
   function handleSubmit(event) {
+    console.log("SUBMIT")
+
+    history.push("/addTransaction");
     loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
-      history.push("/transactionHistory");
-    }).catch(error => {console.log(error)})
-    
+    })
     event.preventDefault();
   }
 

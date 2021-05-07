@@ -37,7 +37,9 @@ const App = () => {
     <Router>
       <Switch>
       <div className="root-container">
-        <Route exact path="/" component={Login} />
+        <div className="Login"sidebarOpen={false}>
+          <Login/>
+        </div>
         <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
         <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
         <Route exact path="/transactionHistory" component={TransactionHistory} />

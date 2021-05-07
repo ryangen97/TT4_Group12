@@ -8,14 +8,10 @@ async function loginAcc(userName,userPass){
         "headers":{
             "x-api-key":api_key
         },
-        "body":JSON.stringify({
-
-                "userName":userName,
-                
-                "userPass":userPass
-                
-                })
-        
+        "body":{
+            "userName":userName,
+            "userPass":userPass
+        }
     
     });
     const userDetails = await response.json();

@@ -10,8 +10,7 @@ import Login from "./Login.js"
 import axios from 'axios'
  import {
   BrowserRouter as Router,
-  Route,
-  Switch
+  Route
 } from 'react-router-dom'
 
 
@@ -35,15 +34,14 @@ const App = () => {
   };
   return (
     <Router>
-      <Switch>
       <div className="root-container">
-        <Route exact path="/" component={Login} />
+        <div className="Login"sidebarOpen={false} >
+          <Login/>
+        </div>
         <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
         <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
-        <Route exact path="/transactionHistory" component={TransactionHistory} />
         <Route exact path="/addTransaction" component={AddTransactionPage} />
       </div>
-      </Switch>
     </Router>
   );
 };
