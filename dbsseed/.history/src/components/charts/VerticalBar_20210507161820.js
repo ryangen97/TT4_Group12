@@ -2,8 +2,6 @@ import React, {useEffect} from 'react';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
-const { viewTransactionDetails } = require('../../api.js');
-
 const data = {
 
   labels: ['-4', '-3', '-2', '-1'],
@@ -46,8 +44,8 @@ const options = {
 
 function VerticalBar(){
   useEffect(() => {
-    console.log("test")
-    viewTransactionDetails(12,"od7b0979-0un2-hhbj-wa0j-oujvks2cf3r")
+
+    viewTransactionDetails(12,"od7b0979-0un2-hhbj-wa0j-oujvks2cf3")
         .then(res => {
           console.log(
             "RESPONSE"

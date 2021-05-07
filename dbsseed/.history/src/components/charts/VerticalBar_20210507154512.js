@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import axios from 'axios';
+const {viewAccountDetails} = require('../../api.js');
 
-const { viewTransactionDetails } = require('../../api.js');
 
 const data = {
 
@@ -45,19 +44,13 @@ const options = {
 };
 
 function VerticalBar(){
-  useEffect(() => {
-    console.log("test")
-    viewTransactionDetails(12,"od7b0979-0un2-hhbj-wa0j-oujvks2cf3r")
-        .then(res => {
-          console.log(
-            "RESPONSE"
-          )
-          console.log(res)
-        })
-        .catch(err => {
+  function viewAccountDetails(custID,accountKey){
+    viewAccountDetails("12", "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r" ).then(data => {
+      console.log(data)
 
-        })
-}, [])
+
+    })
+  }
   return(
   <>
     <div className='header'>

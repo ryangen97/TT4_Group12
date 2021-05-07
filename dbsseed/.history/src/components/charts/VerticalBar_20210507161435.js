@@ -2,8 +2,6 @@ import React, {useEffect} from 'react';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
-const { viewTransactionDetails } = require('../../api.js');
-
 const data = {
 
   labels: ['-4', '-3', '-2', '-1'],
@@ -46,8 +44,14 @@ const options = {
 
 function VerticalBar(){
   useEffect(() => {
-    console.log("test")
-    viewTransactionDetails(12,"od7b0979-0un2-hhbj-wa0j-oujvks2cf3r")
+    axios.post("https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/accounts", {
+        "custID": 12,
+        "accountKey": "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r"
+    }, {
+            headers: {
+                'x-api-key': 'BDTv5isstyQr8aGI2xNp5CzqSYFCrtXPIAZV4Z40',
+            }
+        })
         .then(res => {
           console.log(
             "RESPONSE"
