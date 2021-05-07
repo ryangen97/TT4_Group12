@@ -6,15 +6,14 @@ function Name(){
   const [name, setName] = useState("");
   const apiURL = "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/accounts";
 
-  const fetchData = async () => {
+  const fetchName = async () => {
       const response = await axios.get(apiURL)
 
-      setBooks(response.data) 
+      setName(response.data) 
   }
 
-  return (
-      // returned JSX here
-  )
+
+  
 }
 
 
