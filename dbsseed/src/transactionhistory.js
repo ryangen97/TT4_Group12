@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
-const {viewTransactionDetails} = require('./api');
-const custID = 12;
-const accountKey = "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r";
+import { useAuth } from './contexts/AuthContext'
+const { viewTransactionDetails } = require('./api');
+
+// const custID = 12;
+// const accountKey = "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r";
 
 
 function TransactionHistory() {
-    const [users, setUsers] = useState([]);
+    const [trans, setTrans] = useState([]);
+    const { user } = useAuth()
+
     // viewTransactionDetails(custID,accountKey).then(async transactionDetails=>{transactionDetails;});
     // let transactionData = await viewTransactionDetails(custID,accountKey);
-    
+
     useEffect(() => {
-        viewTransactionDetails(custID,accountKey).then(data =>{
-            setUsers(data)
+        viewTransactionDetails(user.custID, user.accountKey).then(data => {
+            console.log(data)
+            setTrans(data)
+            // setUsers(data)
         })
     }, [])
 
@@ -21,9 +27,8 @@ function TransactionHistory() {
     //     {custID : 2, payeeID : 'payeeid2', date : 'dat2e', amount : 'amnt2', eGift : 'egift2', message: "msg2"}
     // ]);
 
-    if(users){
     return (
-        
+
         <div className="container">
             <h3 className="p-3 text-center">React - Display a list of items</h3>
             <table className="table table-striped table-bordered">
@@ -39,24 +44,24 @@ function TransactionHistory() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map(user =>
-                        <tr key={user.custID}>
-                            <td>{user.custID} </td>
-                            <td>{user.payeeID}</td>
-                            <td>{user.date}</td>
-                            <td>{user.amount}</td>
-                            <td>{user.eGift}</td>
-                            <td>{user.message}</td>
-
-                        </tr>
-                    )}
+                    {
+                        trans.map((item, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{item.custID} </td>
+                                    <td>{item.payeeID}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.amount}</td>
+                                    <td>{item.eGift}</td>
+                                    <td>{item.message}</td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
         </div>
     );
-}else{
-    return (<div></div>)
-}
 }
 
 export default TransactionHistory;

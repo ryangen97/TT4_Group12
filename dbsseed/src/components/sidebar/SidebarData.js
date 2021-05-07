@@ -15,18 +15,6 @@ export const SidebarData = [
         cName: 'sidebar__link'
     },
     {
-        title: 'Profile',
-        path: '/profile',
-        icon: <ImIcons.ImProfile />,
-        cName: 'sidebar__link'
-    },
-    {
-        title: 'Balance',
-        path: '/balance',
-        icon: <FaIcons.FaMoneyBillWave />,
-        cName: 'sidebar__link'
-    },
-    {
         title: 'Transaction History',
         path: '/transaction-history',
         icon: <FaIcons.FaRegMoneyBillAlt/>,
