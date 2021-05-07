@@ -1,37 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-const {viewAccountDetails} = require('../../api.js');
+const {viewAccountDetails} = require('././api.js');
 
-
-const preprocessing = (api_data) => {  //assume api_data is json of all transactions 
-  var amount_by_month= {};
-
-  for (var one_trans in api_data){
-    var unixTime = one_trans['date'];
-    var date = new Date(unixTime*1000);
-    var month = date.toLocaleDateString("en-US").split('/')[1];
-
-    var amount = parseInt(one_trans['amount']); 
-
-    if (month in amount_by_month.keys()){
-      amount_by_month[month].append(amount)
-    }else{
-      amount_by_month[month] = []
-    }; 
-
-  };
-
-  var preprocessed_data_ls = []
-  
-  for (var m in amount_by_month.keys()){
-    var amount_ls = amount_by_month[m]
-    var total = amount_ls.reduce((a, b) => a + b, 0)
-    preprocessed_data_ls.append(total)
-  }
-
-  return preprocessed_data_ls
-
-}; 
 
 const data = {
 
@@ -39,18 +9,22 @@ const data = {
   datasets: [
     {
       label: 'Transactions per month',
-      data: [12, 19, 3, 5],
+      data: [12, 19, 3, 5, 2, 3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
         'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)'
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)'
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
       ],
       borderWidth: 1,
     },
@@ -71,7 +45,7 @@ const options = {
 
 function VerticalBar(){
   function viewAccountDetails(custID,accountKey){
-    viewAccountDetails("Group12", "2q$bOC%uyST4fIR" ).then(data => {
+    loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
     })
   }
