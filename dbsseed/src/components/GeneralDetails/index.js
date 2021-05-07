@@ -1,10 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react';
+import axios from 'axios';
+const {viewAccountDetails} = require('./api');
+
+function Name(){
+  const [name, setName] = useState("");
+  const apiURL = "https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/accounts";
+
+  const fetchData = async () => {
+      const response = await axios.get(apiURL)
+
+      setBooks(response.data) 
+  }
+
+  return (
+      // returned JSX here
+  )
+}
+
+
+
 
 
 export default function MyForm() {
   return (
     <form>
-    <h1>General details</h1>
+    <h1 >General details</h1>
     <p>Name:<input type="text" id="myText" value="">
     </input></p>
     <p>Account balance:<input type="text" id="myText" value="">

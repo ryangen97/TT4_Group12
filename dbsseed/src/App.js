@@ -23,13 +23,13 @@ function App() {
         </Router>
       */
       
-      <div>
-        <Login/>
-      </div>
-      
-      <div className="App">
+        <div>
+        
         <GeneralDetails />
-      </div>
+        </div>  
+       
+      
+     
   );
 }
 
