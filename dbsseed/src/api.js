@@ -9,13 +9,9 @@ async function loginAcc(userName,userPass){
             "x-api-key":api_key
         },
         "body":JSON.stringify({
-
-                "userName":userName,
-                
-                "userPass":userPass
-                
-                })
-        
+            "userName":userName,
+            "userPass":userPass
+        })
     
     });
     const userDetails = await response.json();
@@ -26,20 +22,20 @@ async function loginAcc(userName,userPass){
 //     console.log(userDetails);
 // });
 
-async function sendTransaction(custID,accountKey,payeeID,amount){
+async function sendTransaction(custID,accountKey,payeeID,amount,egift,message){
     const response = await fetch('https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add',{
         "method":"POST",
         "headers":{
             "x-api-key":api_key
         },
-        "body":{
+        "body":JSON.stringify({
             "custID":custID,
             "accountKey":accountKey,
             "payeeID":payeeID,
             "amount":amount,
-            "eGift":false,
-            "message":" "
-        }
+            "eGift":egift,
+            "message":message
+        })
     });
     const successMessage = await response.json();
     return successMessage
@@ -50,18 +46,20 @@ async function sendTransaction(custID,accountKey,payeeID,amount){
 // });
 
 async function viewTransactionDetails(custID,accountKey){
-    const response = await fetch('https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/view',{
+    const thing_to_pass = {
         "method":"POST",
         "headers":{
             "x-api-key":api_key
         },
-        "body":{
+        "body":JSON.stringify({
             "custID":custID,
-            "accountKey":accountKey,
-        }
-    });
+            "accountKey":accountKey
+        })
+    }
+    // console.log(thing_to_pass);
+    const response = await fetch('https://ipllrj2mq8.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/view',thing_to_pass);
     const transactionDetails = await response.json();
-    return transactionDetails
+    return transactionDetails;
 }
 
 //Testing view Transaction
@@ -75,13 +73,13 @@ async function viewAccountDetails(custID,accountKey){
         "headers":{
             "x-api-key":api_key
         },
-        "body":{
+        "body":JSON.stringify({
             "custID":custID,
             "accountKey":accountKey,
-        }
+        })
     });
     const accountDetails = await response.json();
-    return accountDetails
+    return accountDetails;
 }
 //Testing viewAccount
 // viewAccountDetails.then(accountDetails=>{
