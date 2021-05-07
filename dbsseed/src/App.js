@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import "./App.css";
-import Main from "./components/dashboard/Main";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import AddTransactionPage from "./pages/AddTransaction/"
@@ -8,7 +7,11 @@ import TransactionHistory from "./transactionhistory.js"
 import Login from "./Login.js"
 
 import axios from 'axios'
- import {
+import PrivateRoute from "./components/PrivateRoutes"
+import { AuthContextProvider } from './contexts/AuthContext'
+
+
+import {
   BrowserRouter as Router,
   Route,
   Switch
@@ -35,15 +38,16 @@ const App = () => {
   };
   return (
     <Router>
-      <Switch>
-      <div className="root-container">
-        <Route exact path="/" component={Login} />
-        <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
-        <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
-        <Route exact path="/transactionHistory" component={TransactionHistory} />
-        <Route exact path="/addTransaction" component={AddTransactionPage} />
-      </div>
-      </Switch>
+      <AuthContextProvider>
+        <div className="root-container">
+          <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
+          <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
+          <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
+          <div className="Login">
+            <PrivateRoute path="/transaction-history" component={TransactionHistory} />
+          </div>
+        </div>
+      </AuthContextProvider>
     </Router>
   );
 };

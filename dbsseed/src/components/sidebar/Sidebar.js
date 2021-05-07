@@ -2,14 +2,15 @@ import "./Sidebar.css";
 import logo from "../../assets/logo.png";
 import { SidebarData } from "./SidebarData"
 import { Link } from "react-router-dom"
-
+import { useAuth } from "../../contexts/AuthContext"
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
+  const { user } = useAuth()
   return (
     <div className={sidebarOpen ? "sidebar_responsive" : ""} id="sidebar">
       <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={logo} alt="logo" />
-          <h1>Codersbite</h1>
+          <h1>{ user.fullName }</h1>
         </div>
         <i
           onClick={() => closeSidebar()}
@@ -30,11 +31,6 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             )
           })
         }
-        <h2>MNG</h2>
-        <div className="sidebar__link">
-          <i className="fa fa-user-secret" aria-hidden="true"></i>
-          <a href="#">Admin Management</a>
-        </div>
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
           <a href="#">Log out</a>
