@@ -16,7 +16,7 @@ function Login() {
     }
 
     function handleSubmit(event) {
-        loginAcc(email, password)
+        loginAcc("Group12s", "2q$bOC%uyST4fIR")
         .then(
             data => {
                 console.log(data)
@@ -24,7 +24,7 @@ function Login() {
                 history.push("/dashboard");
         })
         .catch(error => { 
-            alert("Wrong Username or Password")
+            alert("Wrong Username and Password")
             console.log(error) })
 
         event.preventDefault();

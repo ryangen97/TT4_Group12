@@ -16,16 +16,15 @@ function Login() {
     }
 
     function handleSubmit(event) {
-        loginAcc(email, password)
+        loginAcc("Group12", "2q$bOC%uyST4fIR")
         .then(
             data => {
+                alert("test")
                 console.log(data)
                 setSession(data)
                 history.push("/dashboard");
         })
-        .catch(error => { 
-            alert("Wrong Username or Password")
-            console.log(error) })
+        .catch(error => { console.log(error) })
 
         event.preventDefault();
     }
