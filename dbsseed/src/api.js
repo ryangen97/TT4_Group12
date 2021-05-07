@@ -79,7 +79,7 @@ async function viewAccountDetails(custID,accountKey){
         })
     });
     const accountDetails = await response.json();
-    return accountDetails
+    return accountDetails;
 }
 //Testing viewAccount
 // viewAccountDetails.then(accountDetails=>{
