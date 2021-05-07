@@ -20,8 +20,15 @@ function Login() {
     loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
     })
+    console.log(data)
     event.preventDefault();
   }
+
+  viewTransactionDetails.then(transactionDetails=>{
+
+    console.log(transactionDetails);
+    
+    });
 
 
 

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Login.css";
-const {loginAcc} = require('./api.js');
+import loginAcc from "./api.js"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,10 +16,6 @@ function Login() {
   }
 
   function handleSubmit(event) {
-    console.log("SUBMIT")
-    loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
-      console.log(data)
-    })
     event.preventDefault();
   }
 

@@ -15,11 +15,10 @@ function Login() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     console.log("SUBMIT")
-    loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
-      console.log(data)
-    })
+    const data = loginAcc("Group12", "2q$bOC%uyST4fIR" )
+    console.log(data)
     event.preventDefault();
   }
 
