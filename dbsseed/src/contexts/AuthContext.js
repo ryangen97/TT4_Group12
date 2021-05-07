@@ -7,7 +7,7 @@ function AuthContextProvider({children}) {
     let history = useHistory()
     const [user, setUser] = useState({})
     useEffect(() => {
-        if (localStorage.getItem("token") && localStorage.getItem("user-details")) {
+        if (localStorage.getItem("user-details")) {
             setUser(JSON.parse(localStorage.getItem("user-details")))
         }
         else{

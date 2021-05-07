@@ -1,10 +1,18 @@
+import React, { useEffect } from 'react'
 import "./Sidebar.css";
 import logo from "../../assets/logo.png";
 import { SidebarData } from "./SidebarData"
 import { Link } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
+import { useHistory } from "react-router-dom"
+
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
+
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+  let history = useHistory()
   return (
     <div className={sidebarOpen ? "sidebar_responsive" : ""} id="sidebar">
       <div className="sidebar__title">
@@ -34,7 +42,11 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
         
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
-          <a href="#">Log out</a>
+          {
+          user.isAuthenticated ? 
+            <span onClick={logout} style={{cursor: "pointer"}}>Log out</span>
+          : <span onClick={() => history.push("/login")} style={{cursor: "pointer"}}>Log in</span>
+        }
         </div>
       </div>
     </div>
