@@ -16,7 +16,7 @@ function TransactionHistory() {
                         <th>date</th>
                         <th>amount</th>
                         <th>eGift</th>
-                        <th>message</th>
+                        <th>message</th>x
 
                     </tr>
                 </thead>
