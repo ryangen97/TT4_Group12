@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoutes"
 import IdleContainer from "./components/SessionTimer/"
 import { AuthContextProvider } from './contexts/AuthContext'
 import AccountPage from "./pages/Account"
+import VerticalBar from "./components/charts/Barchart.js"
 
 import {
   BrowserRouter as Router,
@@ -46,7 +47,7 @@ const App = () => {
           <Route path="/login" component={LoginPage}/>
           <IdleContainer>
             <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
-            <PrivateRoute path="/dashboard" component={DashboardPage} />
+            <PrivateRoute path="/dashboard" component={VerticalBar} />
             <PrivateRoute path="/account" component={AccountPage} />
             <div className="Login">
               <PrivateRoute path="/transaction-history" component={TransactionHistory} />
