@@ -1,11 +1,8 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-const {viewAccountDetails} = require('../../api.js');
-
 
 const data = {
-
-  labels: ['-4', '-3', '-2', '-1'],
+  labels: ['Feb', 'Mar', 'Apr', 'May'],
   datasets: [
     {
       label: 'Transactions per month',
@@ -43,13 +40,7 @@ const options = {
   },
 };
 
-function VerticalBar(){
-  function viewAccountDetails(custID,accountKey){
-    viewAccountDetails("Group12", "2q$bOC%uyST4fIR" ).then(data => {
-      console.log(data)
-    })
-  }
-  return(
+const VerticalBar = () => (
   <>
     <div className='header'>
       <h1 className='title'>Transaction History</h1>
@@ -63,7 +54,6 @@ function VerticalBar(){
     </div>
     <Bar data={data} options={options} />
   </>
-  )
-};
+);
 
 export default VerticalBar;

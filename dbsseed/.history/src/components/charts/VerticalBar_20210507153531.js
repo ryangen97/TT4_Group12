@@ -45,7 +45,7 @@ const options = {
 
 function VerticalBar(){
   function viewAccountDetails(custID,accountKey){
-    viewAccountDetails("Group12", "2q$bOC%uyST4fIR" ).then(data => {
+    loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
     })
   }

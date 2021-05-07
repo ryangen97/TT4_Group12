@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-const {viewAccountDetails} = require('../../api.js');
+const {viewAccountDetails} = require('../../../api.js');
 
 
 const data = {
@@ -45,7 +45,7 @@ const options = {
 
 function VerticalBar(){
   function viewAccountDetails(custID,accountKey){
-    viewAccountDetails("Group12", "2q$bOC%uyST4fIR" ).then(data => {
+    loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
       console.log(data)
     })
   }
