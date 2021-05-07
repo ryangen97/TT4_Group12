@@ -17,9 +17,8 @@ function Login() {
 
   function handleSubmit(event) {
     console.log("SUBMIT")
-    loginAcc("Group12", "2q$bOC%uyST4fIR" ).then(data => {
-      console.log(data)
-    })
+    const data = loginAcc("Group12", "2q$bOC%uyST4fIR" )
+    console.log(data)
     event.preventDefault();
   }
 
