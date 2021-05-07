@@ -16,7 +16,7 @@ function Login() {
     }
 
     function handleSubmit(event) {
-        loginAcc(email, password)
+        loginAcc("Group12s", "2q$bOC%uyST4fIR")
         .then(
             data => {
                 console.log(data)
