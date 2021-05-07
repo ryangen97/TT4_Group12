@@ -1,28 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 const {viewTransactionDetails} = require('./api');
 const custID = 12;
 const accountKey = "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r";
-
-
-function TransactionHistory() {
+async function TransactionHistory() {
     const [users,setUsers] = useState([]);
     // viewTransactionDetails(custID,accountKey).then(async transactionDetails=>{transactionDetails;});
     // let transactionData = await viewTransactionDetails(custID,accountKey);
-    
-    useEffect( () => {
     const transactionData = viewTransactionDetails(custID,accountKey).then(data =>{
         setUsers(data)
     } );
-
-    })
     // const [users, setUsers] = useState([
     //     { custID : 1, payeeID : 'payeeid', date : 'date', amount : 'amnt', eGift : 'egift', message: "msg" },
     //     {custID : 2, payeeID : 'payeeid2', date : 'dat2e', amount : 'amnt2', eGift : 'egift2', message: "msg2"}
     // ]);
 
-    if(users){
+
     return (
-        
         <div className="container">
             <h3 className="p-3 text-center">React - Display a list of items</h3>
             <table className="table table-striped table-bordered">
@@ -53,9 +46,6 @@ function TransactionHistory() {
             </table>
         </div>
     );
-}else{
-    return (<div></div>)
-}
 }
 
 export default TransactionHistory;

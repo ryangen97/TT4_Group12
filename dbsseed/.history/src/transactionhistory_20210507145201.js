@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 const {viewTransactionDetails} = require('./api');
 const custID = 12;
 const accountKey = "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r";
-
-
-function TransactionHistory() {
+async function TransactionHistory() {
     const [users,setUsers] = useState([]);
     // viewTransactionDetails(custID,accountKey).then(async transactionDetails=>{transactionDetails;});
     // let transactionData = await viewTransactionDetails(custID,accountKey);
@@ -55,7 +53,6 @@ function TransactionHistory() {
     );
 }else{
     return (<div></div>)
-}
 }
 
 export default TransactionHistory;

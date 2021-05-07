@@ -56,6 +56,5 @@ function TransactionHistory() {
 }else{
     return (<div></div>)
 }
-}
 
 export default TransactionHistory;

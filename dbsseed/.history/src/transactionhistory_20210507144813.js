@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 const {viewTransactionDetails} = require('./api');
 const custID = 12;
 const accountKey = "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r";
-
-
-function TransactionHistory() {
+async function TransactionHistory() {
     const [users,setUsers] = useState([]);
     // viewTransactionDetails(custID,accountKey).then(async transactionDetails=>{transactionDetails;});
     // let transactionData = await viewTransactionDetails(custID,accountKey);
@@ -20,9 +18,11 @@ function TransactionHistory() {
     //     {custID : 2, payeeID : 'payeeid2', date : 'dat2e', amount : 'amnt2', eGift : 'egift2', message: "msg2"}
     // ]);
 
-    if(users){
+    const posts = users?.map((post, i) => (
+        <li key={i} className="list-group-item">{post.text}</li>
+        ));
+
     return (
-        
         <div className="container">
             <h3 className="p-3 text-center">React - Display a list of items</h3>
             <table className="table table-striped table-bordered">
@@ -39,13 +39,13 @@ function TransactionHistory() {
                 </thead>
                 <tbody>
                     {users && users.map(user =>
-                        <tr key={user.custID}>
-                            <td>{user.custID} </td>
-                            <td>{user.payeeID}</td>
-                            <td>{user.date}</td>
-                            <td>{user.amount}</td>
-                            <td>{user.eGift}</td>
-                            <td>{user.message}</td>
+                        <tr key={posts.custID}>
+                            <td>{posts.custID} </td>
+                            <td>{posts.payeeID}</td>
+                            <td>{posts.date}</td>
+                            <td>{posts.amount}</td>
+                            <td>{posts.eGift}</td>
+                            <td>{posts.message}</td>
 
                         </tr>
                     )}
@@ -53,9 +53,6 @@ function TransactionHistory() {
             </table>
         </div>
     );
-}else{
-    return (<div></div>)
-}
 }
 
 export default TransactionHistory;
