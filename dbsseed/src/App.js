@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import "./App.css";
-import Main from "./components/dashboard/Main";
 import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import AddTransactionPage from "./pages/AddTransaction/"
 import TransactionHistory from "./transactionhistory.js"
 import axios from 'axios'
- import {
+import PrivateRoute from "./components/PrivateRoutes"
+import { AuthContextProvider } from './contexts/AuthContext'
+
+
+import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom'
 
 
@@ -32,14 +36,16 @@ const App = () => {
   };
   return (
     <Router>
-      <div className="root-container">
-        <div className="Login">
-          <TransactionHistory/>
+      <AuthContextProvider>
+        <div className="root-container">
+          <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
+          <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
+          <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
+          <div className="Login">
+            <PrivateRoute path="/transaction-history" component={TransactionHistory} />
+          </div>
         </div>
-        <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
-        <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
-        <Route exact path="/addTransaction" component={AddTransactionPage} />
-      </div>
+      </AuthContextProvider>
     </Router>
   );
 };

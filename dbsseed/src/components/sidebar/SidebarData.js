@@ -1,7 +1,6 @@
 import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
 import * as ImIcons from 'react-icons/im'
-import * as GrIcons from 'react-icons/gr'
 export const SidebarData = [
     {
         title: 'Dashboard',
