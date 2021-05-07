@@ -11,25 +11,17 @@ function TransactionHistory() {
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>custID</th>
-                        <th>payeeID</th>
-                        <th>date</th>
-                        <th>amount</th>
-                        <th>eGift</th>
-                        <th>message</th>
-
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
                 <tbody>
                     {users && users.map(user =>
                         <tr key={user.custID}>
-                            <td>{user.custID} </td>
-                            <td>{user.payeeID}</td>
+                            <td>{user.payeeID} </td>
                             <td>{user.date}</td>
                             <td>{user.amount}</td>
-                            <td>{user.eGift}</td>
-                            <td>{user.message}</td>
-
                         </tr>
                     )}
                 </tbody>

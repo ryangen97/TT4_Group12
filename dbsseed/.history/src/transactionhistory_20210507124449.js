@@ -11,13 +11,9 @@ function TransactionHistory() {
             <table className="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>custID</th>
-                        <th>payeeID</th>
-                        <th>date</th>
-                        <th>amount</th>
-                        <th>eGift</th>
-                        <th>message</th>
-
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
                 <tbody>
