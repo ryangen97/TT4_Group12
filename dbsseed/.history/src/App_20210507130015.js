@@ -7,29 +7,23 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import GeneralDetails from './components/GeneralDetails'
+
 
 function App() {
 
   return (
-      /*
-      <Router>
+    <div className="Login">
+      <TranscationHistory/>
       <Switch>
-
+      <Router>
           <Route exact path="/">
             <Login />
           </Route>
         </Switch>
         </Router>
-      */
-      
-      <div>
-        <Login/>
-      </div>
-      
-      <div className="App">
-        <GeneralDetails />
-      </div>
+    </div>
+
+    
   );
 }
 

@@ -38,7 +38,7 @@
 }
 
 .container {
-  background-color: white;
+  background-color: gray;
   padding: 2rem;
 }
 
@@ -47,25 +47,4 @@
   padding: .5rem;
 }
 
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
-}
-
-body{
-	font-family: sans-serif;
-}
 

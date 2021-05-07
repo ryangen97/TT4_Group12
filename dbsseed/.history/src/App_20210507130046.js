@@ -7,12 +7,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import GeneralDetails from './components/GeneralDetails'
+
 
 function App() {
 
   return (
-      /*
+    <div className="Login">
       <Router>
       <Switch>
 
@@ -21,15 +21,9 @@ function App() {
           </Route>
         </Switch>
         </Router>
-      */
-      
-      <div>
-        <Login/>
-      </div>
-      
-      <div className="App">
-        <GeneralDetails />
-      </div>
+    </div>
+
+    
   );
 }
 
