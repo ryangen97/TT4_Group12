@@ -12,7 +12,8 @@ import {
 function App() {
 
   return (
-      /*
+    <div className="Login">
+      <TranscationHistory/>
       <Router>
       <Switch>
 
@@ -21,11 +22,9 @@ function App() {
           </Route>
         </Switch>
         </Router>
-      */
-      
-      <div>
-        <Login/>
-      </div>
+    </div>
+
+    
   );
 }
 

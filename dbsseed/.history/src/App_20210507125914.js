@@ -12,20 +12,11 @@ import {
 function App() {
 
   return (
-      /*
-      <Router>
-      <Switch>
+    <div className="Login">
+      <TranscationHistory/>
+    </div>
 
-          <Route exact path="/">
-            <Login />
-          </Route>
-        </Switch>
-        </Router>
-      */
-      
-      <div>
-        <Login/>
-      </div>
+    
   );
 }
 
