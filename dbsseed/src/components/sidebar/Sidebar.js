@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import "./Sidebar.css";
 import logo from "../../assets/logo.png";
 import { SidebarData } from "./SidebarData"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
 import { useHistory } from "react-router-dom"
 
@@ -35,7 +35,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
                 return (
                   <div className={item.cName} key={index}>
                     {item.icon}
-                    <Link to={item.path}>{item.title}</Link>
+                    <NavLink exact={true} activeClassName="active_menu_link" to={item.path}>{item.title}</NavLink>
                   </div>
                 )
               })
