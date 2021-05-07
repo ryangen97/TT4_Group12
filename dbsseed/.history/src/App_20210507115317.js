@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className="Login">
-      <TranscationHistory/>
+      <Login/>
     </div>
   );
 }

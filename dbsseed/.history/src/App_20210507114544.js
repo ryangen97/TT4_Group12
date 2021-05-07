@@ -1,5 +1,4 @@
 import TranscationHistory from "./transactionhistory"
-import Login from "./Login.js"
 
 function App() {
 

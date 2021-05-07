@@ -38,7 +38,7 @@
 }
 
 .container {
-  background-color: white;
+  background-color: gray;
   padding: 2rem;
 }
 
@@ -47,25 +47,26 @@
   padding: .5rem;
 }
 
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.cf {
-    *zoom: 1;
-}
-
-body{
-	font-family: sans-serif;
+.table {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  
+  .header, .row {
+    display: flex;
+    
+    div {
+      flex: 1;
+      padding: 0.2rem 0.4em;
+      border: 1px solid rgb(238, 238, 238);
+    }
+  }
+  
+  .header {
+    background-color: rgb(238, 238, 238);
+    div { 
+      cursor: pointer;
+    }
+  }
 }
 
