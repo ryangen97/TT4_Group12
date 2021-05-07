@@ -12,8 +12,8 @@ import {
 function App() {
 
   return (
-   
-      /*
+    <div className="Login">
+      {/*
       <Router>
       <Switch>
 
@@ -22,11 +22,9 @@ function App() {
           </Route>
         </Switch>
         </Router>
-      */
-      
-      <div>
-        <Login/>
-      </div>
+      */}
+      <Login></Login>
+    </div>
 
     
   );
