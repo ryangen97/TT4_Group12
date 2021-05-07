@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import AddTransactionPage from "./pages/AddTransaction/"
 import TransactionHistory from "./transactionhistory.js"
+import VerticalBar from "./components/charts/VerticalBar"
 import axios from 'axios'
  import {
   BrowserRouter as Router,
@@ -35,6 +36,7 @@ const App = () => {
       <div className="root-container">
         <div className="Login">
           <TransactionHistory/>
+          <VerticalBar/>
         </div>
         <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
         <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
