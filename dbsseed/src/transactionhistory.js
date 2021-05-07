@@ -5,16 +5,17 @@ const accountKey = "od7b0979-0un2-hhbj-wa0j-oujvks2cf3r";
 
 
 function TransactionHistory() {
-    const [users,setUsers] = useState([]);
+    const [users, setUsers] = useState([]);
     // viewTransactionDetails(custID,accountKey).then(async transactionDetails=>{transactionDetails;});
     // let transactionData = await viewTransactionDetails(custID,accountKey);
     
-    useEffect( () => {
-    const transactionData = viewTransactionDetails(custID,accountKey).then(data =>{
-        setUsers(data)
-    } );
+    useEffect(() => {
+        viewTransactionDetails(custID,accountKey).then(data =>{
+            setUsers(data)
+        })
+    }, [])
 
-    })
+
     // const [users, setUsers] = useState([
     //     { custID : 1, payeeID : 'payeeid', date : 'date', amount : 'amnt', eGift : 'egift', message: "msg" },
     //     {custID : 2, payeeID : 'payeeid2', date : 'dat2e', amount : 'amnt2', eGift : 'egift2', message: "msg2"}
@@ -38,7 +39,7 @@ function TransactionHistory() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map(user =>
+                    {users.map(user =>
                         <tr key={user.custID}>
                             <td>{user.custID} </td>
                             <td>{user.payeeID}</td>
