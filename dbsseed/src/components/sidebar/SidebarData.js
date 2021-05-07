@@ -21,8 +21,14 @@ export const SidebarData = [
         cName: 'sidebar__link'
     },
     {
-        title: 'Transaction',
-        path: '/transaction',
+        title: 'Transaction History',
+        path: '/transaction-history',
+        icon: <FaIcons.FaRegMoneyBillAlt/>,
+        cName: 'sidebar__link'
+    },
+    {
+        title: 'Send Money',
+        path: '/add-transaction',
         icon: <FaIcons.FaRegMoneyBillAlt/>,
         cName: 'sidebar__link'
     }

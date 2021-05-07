@@ -4,8 +4,8 @@ import Navbar from "./components/navbar/Navbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import AddTransactionPage from "./pages/AddTransaction/"
 import TransactionHistory from "./transactionhistory.js"
-import Login from "./Login.js"
-
+import LoginPage from "./pages/Login/"
+import DashboardPage from "./pages/Dashboard"
 import axios from 'axios'
 import PrivateRoute from "./components/PrivateRoutes"
 import { AuthContextProvider } from './contexts/AuthContext'
@@ -42,7 +42,9 @@ const App = () => {
         <div className="root-container">
           <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
           <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
+          <Route path="/login" component={LoginPage}/>
           <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
+          <PrivateRoute path="/dashboard" component={DashboardPage} />
           <div className="Login">
             <PrivateRoute path="/transaction-history" component={TransactionHistory} />
           </div>

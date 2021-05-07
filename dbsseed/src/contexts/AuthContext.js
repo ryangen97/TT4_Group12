@@ -21,10 +21,16 @@ function AuthContextProvider({children}) {
         setUser({isAuthenticated: false})
         history.push("/login")
     }
+
+    function setSession(jsonObj) {
+        jsonObj.isAuthenticated = true
+        localStorage.setItem("user-details", JSON.stringify(jsonObj) )
+        setUser(jsonObj)
+    }
   
     return (
     
-        <AuthContext.Provider value={{user, setUser, logout}}>
+        <AuthContext.Provider value={{user, setUser, logout, setSession}}>
             {children}
         </AuthContext.Provider>
     )

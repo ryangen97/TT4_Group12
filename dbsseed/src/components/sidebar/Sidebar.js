@@ -31,6 +31,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
             )
           })
         }
+        
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
           <a href="#">Log out</a>
