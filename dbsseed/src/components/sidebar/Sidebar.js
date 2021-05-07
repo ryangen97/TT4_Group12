@@ -18,7 +18,7 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
       <div className="sidebar__title">
         <div className="sidebar__img">
           <img src={logo} alt="logo" />
-          <h1>{ user.fullName }</h1>
+          <h1>{user.fullName}</h1>
         </div>
         <i
           onClick={() => closeSidebar()}
@@ -27,27 +27,29 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
           aria-hidden="true"
         ></i>
       </div>
-
-      <div className="sidebar__menu">
+      {
+        user.isAuthenticated ?
+          <div className="sidebar__menu">
+            {
+              SidebarData.map((item, index) => {
+                return (
+                  <div className={item.cName} key={index}>
+                    {item.icon}
+                    <Link to={item.path}>{item.title}</Link>
+                  </div>
+                )
+              })
+            }
+          </div>
+          : ""
+      }
+      <div className="sidebar__logout">
+        <i className="fa fa-power-off"></i>
         {
-          SidebarData.map( (item, index) => {
-            return(
-              <div className={item.cName} key={index}>
-                {item.icon}
-                <Link to={item.path}>{item.title}</Link>
-              </div>
-            )
-          })
+          user.isAuthenticated ?
+            <span onClick={logout} style={{ cursor: "pointer" }}>Log out</span>
+            : <span onClick={() => history.push("/login")} style={{ cursor: "pointer" }}>Log in</span>
         }
-        
-        <div className="sidebar__logout">
-          <i className="fa fa-power-off"></i>
-          {
-          user.isAuthenticated ? 
-            <span onClick={logout} style={{cursor: "pointer"}}>Log out</span>
-          : <span onClick={() => history.push("/login")} style={{cursor: "pointer"}}>Log in</span>
-        }
-        </div>
       </div>
     </div>
   );

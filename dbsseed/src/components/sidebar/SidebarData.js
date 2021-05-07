@@ -6,7 +6,13 @@ export const SidebarData = [
         title: 'Dashboard',
         path: '/',
         icon: <AiIcons.AiFillHome />,
-        cName: 'sidebar__link active_menu_link'
+        cName: 'sidebar__link'
+    },
+    {
+        title: 'Account',
+        path: '/account',
+        icon: <AiIcons.AiFillHome />,
+        cName: 'sidebar__link'
     },
     {
         title: 'Profile',

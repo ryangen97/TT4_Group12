@@ -9,7 +9,7 @@ import DashboardPage from "./pages/Dashboard"
 import axios from 'axios'
 import PrivateRoute from "./components/PrivateRoutes"
 import { AuthContextProvider } from './contexts/AuthContext'
-
+import AccountPage from "./pages/Account"
 
 import {
   BrowserRouter as Router,
@@ -45,6 +45,7 @@ const App = () => {
           <Route path="/login" component={LoginPage}/>
           <PrivateRoute path="/add-transaction" component={AddTransactionPage} />
           <PrivateRoute path="/dashboard" component={DashboardPage} />
+          <PrivateRoute path="/account" component={AccountPage} />
           <div className="Login">
             <PrivateRoute path="/transaction-history" component={TransactionHistory} />
           </div>
